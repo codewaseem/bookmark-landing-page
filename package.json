@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "0.0.1",
+  "description": "PSD to HTML conversion of a construction company page",
+  "main": "index.js",
+  "author": "Waseem Ahmed <codewaseem@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "start": "yarn parcel src/index.html",
+    "build-prod": "yarn parcel build src/index.html"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "parcel": "^1.12.4",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "^1.19.1",
+    "sass": "^1.23.7"
+  }
+}
