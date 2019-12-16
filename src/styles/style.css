@@ -9,6 +9,15 @@ html {
   line-height: 1.2em;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  left: -99999px;
+}
+
 /* Tablets? */
 @media screen and (min-width: 320px) {
   html {
