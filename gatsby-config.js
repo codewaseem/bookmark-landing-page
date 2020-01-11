@@ -1,6 +1,7 @@
 module.exports = {
   plugins: [
     `gatsby-plugin-emotion`,
+    `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
