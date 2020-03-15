@@ -2,6 +2,7 @@ import React from "react";
 import useStores from "../hooks/useStores";
 import { observer } from "mobx-react-lite";
 import { Link } from "gatsby";
+import GatsbyIcon from "../components/image";
 
 export const Index = () => {
   let stores = useStores();
@@ -14,7 +15,7 @@ export const Index = () => {
       </h1>
 
       <Link to="/observer-component">Go Here</Link>
-
+      <GatsbyIcon />
       <section>
         <h1>Counter Store</h1>
         <p>Current Value: {stores.counter.count}</p>
