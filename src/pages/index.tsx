@@ -1,17 +1,16 @@
 import React from "react";
 import useStores from "../hooks/useStores";
 import { observer } from "mobx-react-lite";
-import { Link } from "gatsby";
 import GatsbyIcon from "../components/image";
+import { FormattedMessage, Link } from "gatsby-plugin-intl";
+import Layout from "../components/layout";
 
 export const Index = () => {
   let stores = useStores();
-
   return (
-    <div>
+    <Layout>
       <h1>
-        Hello, world! adsfnalksdfj klasdjfalksd fasdfladflakjdf alsdkf jaldfjldd
-        adflakj asfjlaksdf alakdsfjjk
+        <FormattedMessage id="hello_world" />
       </h1>
 
       <Link to="/observer-component">Go Here</Link>
@@ -36,7 +35,7 @@ export const Index = () => {
         ></div>
         <button onClick={stores.theme.toggleThemeColor}>Toggle Theme</button>
       </section>
-    </div>
+    </Layout>
   );
 };
 
