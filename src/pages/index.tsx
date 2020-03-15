@@ -1,6 +1,7 @@
 import React from "react";
 import useStores from "../hooks/useStores";
 import { observer } from "mobx-react-lite";
+import { Link } from "gatsby";
 
 export const Index = () => {
   let stores = useStores();
@@ -11,6 +12,8 @@ export const Index = () => {
         Hello, world! adsfnalksdfj klasdjfalksd fasdfladflakjdf alsdkf jaldfjldd
         adflakj asfjlaksdf alakdsfjjk
       </h1>
+
+      <Link to="/observer-component">Go Here</Link>
 
       <section>
         <h1>Counter Store</h1>
