@@ -9,3 +9,10 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
+.sr-only {
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  left: -9999px;
+}

@@ -14,10 +14,11 @@ export const PureHeader: React.FC<headerProps> = () => {
         padding: 30,
       }}
     >
-      <section>
+      <div>
         <img src="/images/logo-bookmark.svg" alt="Welcome to Bookmark It" />
-      </section>
+      </div>
       <nav>
+        <h1 className="sr-only">Navigation</h1>
         <span>
           <img src="/images/icon-hamburger.svg" alt="Open Navigation" />
         </span>
