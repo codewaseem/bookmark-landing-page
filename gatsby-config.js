@@ -3,6 +3,7 @@ const path = require("path");
 
 const basePlugins = [
   `gatsby-plugin-typescript`,
+  `gatsby-plugin-emotion`,
   {
     resolve: `gatsby-source-filesystem`,
     options: {
