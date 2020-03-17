@@ -1,0 +1,11 @@
+html,
+body {
+  min-height: 100vh;
+  font-family: "Rubik";
+  font-size: 18px;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}

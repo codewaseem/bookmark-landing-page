@@ -10,6 +10,7 @@ export const PureHeader: React.FC<headerProps> = () => {
       css={{
         display: "flex",
         justifyContent: "space-between",
+        alignItems: "center",
         padding: 30,
       }}
     >
