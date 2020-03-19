@@ -7,10 +7,13 @@ import ThemedBackground from "./themedBackground";
 
 interface bannerProps extends React.AllHTMLAttributes<any> {}
 
-const RelativeFlexDiv = styled.div`
+const HeroImageContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  min-width: 375px;
+  max-width: 750px;
+  flex: 1;
 `;
 
 const StyledButton = styled.button`
@@ -23,12 +26,9 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const HeroImage: React.FC<React.AllHTMLAttributes<any>> = ({
-  style,
-  ...props
-}) => {
+const HeroImage: React.FC<React.AllHTMLAttributes<any>> = ({ ...props }) => {
   return (
-    <RelativeFlexDiv style={{ ...style }} {...props}>
+    <HeroImageContainer {...props}>
       <ThemedBackground />
       <img
         css={css`
@@ -41,11 +41,11 @@ const HeroImage: React.FC<React.AllHTMLAttributes<any>> = ({
         src={"/images/illustration-hero.svg"}
         alt=""
       />
-    </RelativeFlexDiv>
+    </HeroImageContainer>
   );
 };
 
-export const Banner: React.FC<bannerProps> = ({ style, ...props }) => {
+export const Banner: React.FC<bannerProps> = ({ ...props }) => {
   let store = useStores();
   let intl = useIntl();
 
@@ -58,18 +58,16 @@ export const Banner: React.FC<bannerProps> = ({ style, ...props }) => {
         flex-direction: column;
         margin-top: 50px;
         align-items: center;
+        justify-content: space-between;
 
         @media screen and (min-width: 850px) {
           flex-direction: row-reverse;
           text-align: left;
         }
       `}
-      style={{
-        ...style,
-      }}
       {...props}
     >
-      <HeroImage style={{ flex: 1 }} />
+      <HeroImage />
       <div
         css={css`
           margin: 30px;
