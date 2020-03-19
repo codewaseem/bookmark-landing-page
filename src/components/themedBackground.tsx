@@ -16,7 +16,7 @@ const ThemedBackground = ({
         width: 80%;
         height: 77.5%;
         ${direction}: 0;
-        bottom: 0;
+        top: 25%;
         ${`border-bottom-${borderPosition}-radius`}: 27.5%;
         z-index: -1;
         position: absolute;

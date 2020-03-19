@@ -5,10 +5,12 @@ import useStores from "../hooks/useStores";
 import { useIntl } from "gatsby-plugin-intl";
 import ThemedBackground from "./themedBackground";
 
-interface bannerProps {}
+interface bannerProps extends React.AllHTMLAttributes<any> {}
 
-const RelativeDiv = styled.div`
+const RelativeFlexDiv = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 
 const StyledButton = styled.button`
@@ -16,15 +18,17 @@ const StyledButton = styled.button`
   border-radius: 5px;
   background-color: transparent;
   border: 0;
-  margin: 10px;
   font-weight: bolder;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 `;
 
-const HeroImage = () => {
+const HeroImage: React.FC<React.AllHTMLAttributes<any>> = ({
+  style,
+  ...props
+}) => {
   return (
-    <RelativeDiv>
+    <RelativeFlexDiv style={{ ...style }} {...props}>
       <ThemedBackground />
       <img
         css={css`
@@ -37,30 +41,38 @@ const HeroImage = () => {
         src={"/images/illustration-hero.svg"}
         alt=""
       />
-    </RelativeDiv>
+    </RelativeFlexDiv>
   );
 };
 
-export const Banner: React.FC<bannerProps> = () => {
+export const Banner: React.FC<bannerProps> = ({ style, ...props }) => {
   let store = useStores();
   let intl = useIntl();
 
   return (
     <div
       css={css`
-        min-height: 80vmin;
         width: 100%;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        align-items: center;
 
-        > * {
-          margin-top: 30px;
+        @media screen and (min-width: 850px) {
+          flex-direction: row-reverse;
+          text-align: left;
         }
       `}
+      style={{
+        ...style,
+      }}
+      {...props}
     >
-      <HeroImage />
+      <HeroImage style={{ flex: 1 }} />
       <div
         css={css`
-          margin-top: 50px;
+          margin: 30px;
         `}
       >
         <article>
@@ -76,10 +88,14 @@ export const Banner: React.FC<bannerProps> = () => {
           </h1>
           <p
             css={css`
-              padding: 20px 40px;
+              margin: 20px auto;
               max-width: 340px;
               color: ${store.theme.colors.grayishBlue};
               line-height: 2;
+
+              @media screen and (min-width: 850px) {
+                margin: 20px 0;
+              }
             `}
           >
             A clean and simple interface to organize your favourite websites.
@@ -91,6 +107,7 @@ export const Banner: React.FC<bannerProps> = () => {
               style={{
                 backgroundColor: `${store.theme.colors.softBlue}`,
                 color: "white",
+                marginRight: "20px",
               }}
             >
               Get it on Chrome
