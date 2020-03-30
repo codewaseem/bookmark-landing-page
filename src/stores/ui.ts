@@ -6,6 +6,6 @@ export default class ThemeStore {
 
   @action.bound
   toggleNav() {
-    this.isNavOpen = !!this.isNavOpen;
+    this.isNavOpen = !this.isNavOpen;
   }
 }

@@ -3,6 +3,7 @@ import React from "react";
 import { css } from "@emotion/core";
 import useStores from "../hooks/useStores";
 import styled from "@emotion/styled";
+import { observer } from "mobx-react-lite";
 
 interface headerProps extends React.AllHTMLAttributes<any> {}
 
@@ -22,7 +23,7 @@ const StyledHeader = styled.header`
   padding: 30px;
 `;
 
-const Logo = () => (
+const Logo: React.FC<React.AllHTMLAttributes<any>> = () => (
   <div>
     <img src="/images/logo-bookmark.svg" alt="Welcome to Bookmark It" />
   </div>
@@ -36,19 +37,63 @@ const Navigation = () => (
   </nav>
 );
 
-const MobileNav = () => {
+const MobileNav = observer(() => {
+  let store = useStores();
+
   return (
-    <span
-      css={css`
-        @media screen and (min-width: 850px) {
-          display: none;
-        }
-      `}
-    >
-      <img src="/images/icon-hamburger.svg" alt="Open Navigation" />
-    </span>
+    <div>
+      <span
+        role="button"
+        tabIndex={0}
+        onClick={store.ui.toggleNav}
+        onKeyDown={store.ui.toggleNav}
+        css={css`
+          @media screen and (min-width: 850px) {
+            display: none;
+          }
+          cursor: pointer;
+        `}
+      >
+        <img src="/images/icon-hamburger.svg" alt="Open Navigation" />
+      </span>
+      <div
+        css={css`
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          height: 100%;
+          background: ${store.theme.colors.veryDarkBlue};
+          opacity: 0.85;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          width: 375px;
+        `}
+      >
+        {/* <Logo
+          style={{
+            filter: `invert(100%)`,
+          }}
+        /> */}
+        <ul
+          css={css`
+            list-style: none;
+            > li {
+              display: inline-block;
+              padding: 20px 35px;
+              width: 100%;
+            }
+          `}
+        >
+          <li>Features</li>
+          <li>Pricing</li>
+          <li>Contact</li>
+          <li>Login</li>
+        </ul>
+      </div>
+    </div>
   );
-};
+});
 
 const DesktopNav = () => {
   let store = useStores();
